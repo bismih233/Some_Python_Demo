@@ -3,6 +3,7 @@ import re
 import os
 from bs4 import BeautifulSoup
 import subprocess
+import time
 
 
 # 获取当前目录下的所有M4A文件列表
@@ -54,10 +55,8 @@ for file_path in m4a_files:
             # 运行命令
             subprocess.run(command)
             os.remove(file_path)
+            time.sleep(60)
         else:
             print("未找到关键词对应的链接")
     else:
         print("请求失败，状态码：", response.status_code)
-
-      
-
